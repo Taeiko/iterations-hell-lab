@@ -227,9 +227,10 @@ let firstLast = [];
 
 // Complete the exercise in the space below:
 
-firstLast = inventors.map(function(reverseName){
-return {first: reverseName.first, last: reverseName.last} 
-})
+firstLast = people.map(function(fullName){
+  const parts = fullName.split(', ');
+  return parts[1] + ' ' + parts[0];
+});
 // Check your work:
 console.log('Exercise 5 my result: ', firstLast);
 console.log('Exercise 5 correct result: ', [
@@ -290,10 +291,10 @@ old or older.
 let isAdultPresent = null;
 
 // Complete the exercise in the space below:
-people.some(function(zoomerS){
-  if (isAdultPresent = true)
-  return zoomerS.isAdultPresent
-})
+isAdultPresent = devs.some(function(dev) {
+  const age = new Date().getFullYear() - dev.year;
+  return age >= 18;
+});
 // Check your work:
 console.log('Exercise 6 my result: ', isAdultPresent);
 console.log('Exercise 6 correct result: ', true);
@@ -311,11 +312,10 @@ Use Array.prototype.every() to determine if every person in the devs array is
 - Store the result (true or false) in the variable 'isEveryone19OrOlder'.
 */
 
-let isEveryone19OrOlder = null;
-devs.every(function(stillZoomers){
-  if (devs.year >= 19)
-  return stillZoomers.isEveryone19OrOlder
-})
+isEveryone19OrOlder = devs.every(function(dev) {
+  const age = new Date().getFullYear() - dev.year;
+  return age >= 19;
+});
 // Complete the exercise in the space below:
 
 // Check your work:
@@ -334,7 +334,9 @@ a specific ID 823423 from an array of comment objects.
 let commentById = {};
 
 // Complete the exercise in the space below:
-
+commentById = comments.find(function(comment){
+  return comment.id ===823423
+})
 // Check your work:
 console.log('Exercise 8 my result: ', commentById);
 console.log('Exercise 8 correct result: ', { text: 'Super good', id: 823423 });
@@ -351,7 +353,9 @@ of comment objects.
 let idx = null;
 
 // Complete the exercise in the space below:
-
+idx = comments.findIndex(function(comment){
+  return comment.id === 123523
+})
 // Check your work:
 console.log('Exercise 9 my result: ', idx);
 console.log('Exercise 9 correct result: ', 3);
